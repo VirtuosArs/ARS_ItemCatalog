@@ -43,7 +43,7 @@ This will give you a directory named **arsItemCatalog** complete with the source
 
 ## Run the virtual machine!
 
-Using the terminal, change directory to oauth (**cd oauth**), then type **vagrant up** to launch your virtual machine.
+Using the terminal, change directory to oauth (**cd arsItemCatalog**), then type **vagrant up** to launch your virtual machine.
 
 
 ## Running the ARS Item Catalog App
