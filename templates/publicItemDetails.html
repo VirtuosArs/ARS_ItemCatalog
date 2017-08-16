@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<br><br>
+<div class="container">
+        <div class="card blue-grey darken-1">
+           <div class="card-content white-text">
+             <span class="card-title">{{item_details.name}}</span>
+             <p>{{item_details.description}}</p>
+           </div>
+         </div>
+</div>
+
+{% include "footer.html" %}
+{% endblock %}

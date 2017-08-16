@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<br><br>
+
+<div class = 'flash alert alert-success alert-dismissable' role="alert">
+              {% with messages = get_flashed_messages() %}
+      {% if messages %}
+
+        <ul>
+        {% for message in messages %}
+            <li> <strong>{{ message }}</strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+<div class="row">
+        <div class="container">
+		    <h3>Delete Item</h3>
+		    <p>Are you sure you want to delete {{item.name}} ?</p>
+		    <span class="red-text"><h4>Warning: This will delete all the item data.</h4></span>
+		    <br>
+		    <form action="{{url_for('deleteItem', category_id=category_id, item_id=item_id )}}" method = "post">
+		    	<button type="submit" class="btn btn-danger" id="submit">Delete</button>
+         	</form>
+         <br>
+          <a href = "{{url_for('showCategories')}}">
+              <button class="btn btn-primary">
+               Cancel</button>
+          </a>
+        </div>
+</div>
+{% endblock %}

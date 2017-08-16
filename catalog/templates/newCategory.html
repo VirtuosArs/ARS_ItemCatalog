@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 add-cat-box">
+            <div>
+                <h2>Add a New Category</h2>
+            </div>
+            <div>
+                <label>Category Name:</label>
+                <form action="{{url_for('addCategory')}}" method="POST">
+                    <input type="text" name="name">
+                    <input type="submit" value="Add">
+                </form>
+            </div>
+            <div>
+                {% if newCategory %}
+                    {{newCategory}} has been added as a Category.
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div>
+    </div>
+</div>
+{% endblock %}

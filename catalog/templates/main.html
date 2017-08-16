@@ -1,0 +1,26 @@
+<!--Main Template Page for Item Catalog App-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+          <!-- Bootstrap CSS CDN -->
+        <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='styles.css') }}">
+        <title>{% block title %}{% endblock %} - Item Catalog</title>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,
+        user-scalable=no">
+        {% endblock %}
+    </head>
+    <body class="body-background">
+      <!-- APP CONTENT -->
+        {% block body %}
+                {% block content %}
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </body>
+</html>

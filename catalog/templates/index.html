@@ -1,0 +1,63 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container cat-container">
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h3>Categories</h3>
+            <div>
+                <a href="{{url_for('addCategory')}}">
+                    <button>
+                        Add Category
+                    </button>
+                </a>
+            </div>
+            {% for category in categories %}
+                <a href="{{url_for('showCategoryItems', category_id=category.id)}}" id='category_name' data-name="{{category.id}}">
+                    <h3>{{category.name}}</h3>
+                </a>
+                <label>
+                    <a href="{{url_for('addItem', category_id=category.id)}}">
+                        Add Item
+                    </a>
+                </label>
+                |
+                <label>
+                    <a href="{{url_for('editCategory',
+                    category_id=category.id)}}">
+                        Edit
+                    </a>
+                </label>
+                |
+                <label>
+                    <a href="{{url_for('delCategory',
+                    category_id=category.id)}}">
+                        Delete
+                    </a>
+                </label>
+            {% endfor %}
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <h3>Latest Items </h3>
+            {% for catItem in item %}
+                <a href="{{url_for('showItem', category_id=catItem.category_id, item_id=catItem.id)}}" id="item_name" data-name="{{catItem.id}}">
+                    <h4>{{catItem.name}}</h4>
+                </a>
+                <label>
+                    <a href="{{url_for('editCategoryItem',
+                    category_id=catItem.category_id, item_id=catItem.id)}}">
+                        Edit
+                    </a>
+                </label>
+                |
+                <label>
+                    <a href="{{url_for('delCategoryItem',
+                    category_id=catItem.category_id, item_id=catItem.id)}}">
+                        Delete
+                    </a>
+                </label>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

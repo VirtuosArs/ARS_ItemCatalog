@@ -1,0 +1,54 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<br><br>
+
+<div class = 'flash alert alert-success alert-dismissable' role="alert">
+              {% with messages = get_flashed_messages() %}
+      {% if messages %}
+		<div class="card-panel teal">
+        <ul>
+        {% for message in messages %}
+            <li> <strong>{{ message }}</strong> </li>
+        {% endfor %}
+        </ul>
+        <div class="card-panel teal">
+        {% endif %}
+    {% endwith %}
+
+</div>
+<div class="row">
+        <div class="container">
+
+				<h3> Delete Category</h3>
+			<div>
+			    <h6>Are you sure you want to delete this category?<br>Warning: All items in this category will also be deleted.</h6>
+			        <form action="{{ url_for('deleteCategory',category_id = category.id)}}" method="POST">
+			            <button type="submit" class="btn btn-danger">Delete</button>
+
+				        <a href = "{{url_for('showCategories')}}">
+							<button class="btn btn-primary">
+							 Cancel</button>
+						</a>
+					</form>
+
+			</div>
+
+          <form action="#" method="POST">
+         <div class="input-field">
+           <input type="text" id="name" name="name">
+           <label class="active" for="name">Category Name</label>
+         </div>
+
+		<br>
+         <button type="submit" class="btn btn-default">Add</button>
+         <a href = "{{url_for('showCategories')}}">
+						<button class="btn btn-primary">
+						 Cancel</button>
+					</a>
+       </form>
+        </div>
+</div>
+{% include "footer.html" %}
+{% endblock %}

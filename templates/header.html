@@ -1,0 +1,18 @@
+<nav>
+        <div class="nav-wrapper blue">
+          <a href="{{url_for('showCategories')}}" class="brand-logo">ARS Item Catalog</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>{%if 'username' not in session %}
+			<a class="waves-effect waves-light btn brown white-text" href="{{url_for('showLogin')}}">Login</a>
+			{% else %}
+			<a class="waves-effect waves-light btn brown white-text" href="{{url_for('disconnect')}}">Logout</a>
+			{% endif %}</li>
+          </ul>
+        </div>
+</nav>
+<div class="section"></div>
+<div class="center-align">
+<a class="waves-effect waves-light btn btn-large green white-text"
+      href="{{url_for('showCategories')}}"><i class="material-icons left">
+      explore</i>Show all Categories</a>
+</div>

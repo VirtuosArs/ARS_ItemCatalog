@@ -1,0 +1,56 @@
+<!--Categories page displaying all item categories-->
+
+{% extends "main.html" %}
+{% block head %}
+    {{ super() }}
+    <script type=text/javascript>
+        /*$(document).ready(function(){
+            $('#category_name').click(function(){
+                var jCatName = $('#category_name').data()
+                var showData = $('#show-data');
+
+                $.getJSON('/category/%s' % jCatName, function(data){
+                    console.log(data);
+
+                    var items = data.items.map(function (item) {
+                        return item.key + ': ' + item.value;
+                    });
+
+                    showData.empty()
+
+                    if(items.length){
+                        var content = '<li>' + items.join('</li><li>') + '</li>';
+                        var list = $('<ul />').html(content);
+                        showData.append(list);
+
+                    };
+                });
+                showData.text('Loading json Data.');
+            });
+        });*/
+    </script>
+{% endblock %}
+
+{% block content %}
+{% include "header.html" %}
+<div class="container cat-container">
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h3>Public Categories</h3>
+            {% for category in categories %}
+                <a href="{{url_for('showCategoryItems', category_id=category.id)}}" id='category_name' data-name="{{category.id}}">
+                    <h3>{{category.name}}</h3>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <h3>Items</h3><br>
+            {% for catItem in item %}
+                <a href="{{url_for('showItem', category_id=catItem.category_id, item_id=catItem.id)}}" id="item_name" data-name="{{catItem.id}}">
+                    <h4>{{catItem.name}}</h4><br>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

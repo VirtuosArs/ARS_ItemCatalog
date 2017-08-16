@@ -1,0 +1,49 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<br><br>
+
+<div class="row">
+        <div class="col s3">
+            <a href="{{url_for('newCategory')}}">
+                    <button class="btn btn-default pull-right">
+                        Add Category
+                    </button>
+                </a>
+        </div>
+        <div class="col s3">
+            <a href="{{url_for('newItem', category_id=category.id, category_name=category.name)}}">
+                    <button class="btn btn-default pull-right">
+                        Add Item
+                    </button>
+                </a>
+        </div>
+</div>
+<div class="row">
+        <div class="col s3">
+           <div class="card-panel grey">
+                <h4>Categories</h4>
+                {% for category in categories %}
+                <a href="{{url_for('showCategoryItems', category_id = category.id, category_name = category.name)}}" class="white-text">
+                    <h5>{{category.name}}</h5>
+                </a>
+            {% endfor %}
+           </div>
+        </div>
+        <div class="col s9">
+            <div class="card-panel white">
+                <h4>{{category_name}} Items ({{items|length }} items)</h4>
+            {% for item in items %}
+                 <!-- <a href="{{url_for('showItems', category_id=items.category_id, item_id=items.id)}}" class="black-text"> -->
+                 <a href="{{url_for('showItemDetails', category_id=item.category_id, item_id=item.id)}}" id="item_name" data-name="{{item.id}}">
+                <!-- <a href="{{url_for('showItems')}}" class="black-text"> -->
+                    <h5>{{item.name}}<h5></a>
+
+            {% endfor %}
+            </div>
+        </div>
+</div>
+
+{% include "footer.html" %}
+{% endblock %}

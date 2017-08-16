@@ -1,0 +1,58 @@
+.body-background {
+    background-color: #e3e5e8;
+}
+
+.top-menu {
+    background-color: #1e53a8;
+}
+
+.cat-container {
+    border: 1px solid black;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.glyphicon-home {
+    color: white;
+}
+
+.home-text {
+    color: white;
+    font-size: 32;
+}
+
+.login {
+    color: white;
+    background-color: #ffa000;
+}
+
+.outer-container {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle-container {
+    display: table-cell;
+    vertical-align: middle;
+}
+.inner-container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.item-detail-container {
+    margin: auto;
+    border: 1px solid black;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.add-cat-box {
+    border: 1px solid black;
+    background-color: white;
+    margin-top:20px;
+    padding-bottom: 10px;
+}

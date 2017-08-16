@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container item-detail-container">
+    <h3>Item Details!</h3>
+            <label>Name: </label> {{item_details.name}}<br>
+            <label>Price: </label> {{item_details.price}}<br>
+            <label>Description: </label> {{item_details.description}} <br>
+</div>
+{% endblock %}

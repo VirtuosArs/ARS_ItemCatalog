@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<h2>Public Items</h2>
+{% for item in items %}
+        <label>Name: </label> {{item.name}}<br>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<br><br>
+
+<div class = 'flash alert alert-success alert-dismissable' role="alert">
+              {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li> <strong>{{ message }}</strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+</div>
+
+
+        <!-- <div class="col-lg-12"> -->
+        <div class="row">
+        <div class="col s3">
+            <a href="{{url_for('newCategory')}}">
+                    <button class="btn btn-default pull-right">
+                        Add Category
+                    </button>
+                </a>
+        </div>
+        </div>
+
+<div class="row">
+        <div class="col s3">
+
+                <div class="card-panel grey">
+                <h4 class="hd">Categories</h4>
+                {% for category in categories %}
+                <a href="{{url_for('showCategoryItems', category_id=category.id, category_name = category.name)}}" class="white-text">
+                    <h5>{{category.name}}</h5>
+                </a>
+            {% endfor %}
+           </div>
+        </div>
+        <div class="col s9">
+            <div class="card-panel white">
+                <h4 class="hd">Latest Items</h4>
+            {% for item in items %}
+                <!-- <a href="{{url_for('showItems', category_id=items.category_id, item_id=items.id)}}" id="item_name" data-name="{{items.id}}" class="black-text"> -->
+                <a href="{{url_for('showItemDetails', category_id=item.category_id, item_id=item.id)}}" id="item_name" data-name="{{item.id}}" class="black-text">
+                <!-- <a href="{{url_for('showItems')}}" class="black-text"> -->
+                    <h5>{{item.name}}</a><span class="blue-text lighten-5">  (<em>{{item.category.name}}</em>)</span><h5>
+
+            {% endfor %}
+            </div>
+        </div>
+</div>
+{% include "footer.html" %}
+{% endblock %}
