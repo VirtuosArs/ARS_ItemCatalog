@@ -37,7 +37,7 @@ Vagrant is the software that configures the VM and lets you share files between 
 
 From the terminal, run:
 
-    git clone  arsItemCatalog
+    git clone https://github.com/VirtuosArs/ARS_ItemCatalog.git arsItemCatalog
 
 This will give you a directory named **arsItemCatalog** complete with the source code. 
 
